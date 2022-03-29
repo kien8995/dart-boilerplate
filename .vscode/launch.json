@@ -5,18 +5,14 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "project-template",
-            "request": "launch",
-            "type": "dart"
-        },
-        {
             "name": "api",
             "cwd": "apps/api",
             "request": "launch",
-            "type": "dart"
+            "type": "dart",
+            "program": "./bin/server.dart"
         },
         {
-            "name": "web",
+            "name": "web (debug mode)",
             "cwd": "apps/web",
             "request": "launch",
             "type": "dart",

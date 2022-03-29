@@ -16,7 +16,12 @@ scripts:
         run: melos run test:selective_unit_test --no-select
         description: Run all Flutter tests in this project.
     
-    web:
+    run:api:
+        run: melos exec -- dart run bin/server.dart
+        select-package:
+            scope: 'api'
+    
+    run:web:
         run: melos exec -- flutter run lib/main.dart --debug
         select-package:
             scope: 'web'
