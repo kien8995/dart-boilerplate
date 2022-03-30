@@ -1,0 +1,17 @@
+targets:
+  $default:
+    builders:
+      json_serializable|json_serializable:
+        options:
+          explicit_to_json: true
+          include_if_null: false
+        # This will only generate code for files 
+        # in a "models" or "entities" folder.
+        generate_for:
+          - "**/models/**.dart"
+          - "**/settings/**.dart"
+      freezed|freezed:
+        # This will only generate code for files 
+        # that end with ".f.dart".
+        generate_for:
+          - "**/**.f.dart"
