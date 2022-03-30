@@ -1,6 +1,8 @@
 import 'package:shelf/shelf.dart';
 import 'package:shelf_router/shelf_router.dart';
 
+import '../extensions/Router_extension.dart';
+
 class EchoController {
   Router get router {
     final Router router = Router();
@@ -11,7 +13,7 @@ class EchoController {
       ..post('/messages/', _messages)
       ..put('/messages/', _messages)
       ..delete('/messages/', _messages)
-      ..all('/<ignored|.*>', (Request request) => Response.notFound('null'));
+      ..add404();
 
     return router;
   }

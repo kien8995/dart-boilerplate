@@ -1,6 +1,7 @@
 import 'package:shelf/shelf.dart';
 import 'package:shelf_router/shelf_router.dart';
 
+import '../extensions/extensions.dart';
 import 'echo_controller.dart';
 import 'test_controller.dart';
 
@@ -20,12 +21,11 @@ class RootController {
     router
       ..mount('/echo/', EchoController().router)
       ..mount('/test/', TestController().router);
+    // ..mount('/ws/', SocketServerController().handler);
 
     // A catch all of the non implemented routing, useful for showing 404 page now found
     // With the server running try to open http://localhost:1102/abc
-    router.all('/<ignored|.*>', (Request request) {
-      return Response.notFound('Page not found');
-    });
+    router.add404();
 
     return router;
   }
